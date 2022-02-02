@@ -8,8 +8,12 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.json());
+
 dbConnection();
 
-app.listen(process.env.PORT, () =>{
+app.use('/api/transfers', require('./routes/transfers'));
+
+app.listen(process.env.PORT, () => {
     console.log('Servidor corriendo en puerto ' + process.env.PORT);
 });
