@@ -1,5 +1,4 @@
 const Transfer = require('../models/transfer')
-const { validationResult  } = require('express-validator'); 
 
 const getTransfers = async (req, res) => {
 
@@ -12,13 +11,6 @@ const getTransfers = async (req, res) => {
 }
 
 const createTransfer = async (req, res) => {
-
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { beneficiaryBankAccount, beneficiaryBank, beneficiaryBankAccountType, beneficiaryName, beneficiaryDni, remitterId } = req.body;
 
     const transfer = new Transfer( req.body ); 
 

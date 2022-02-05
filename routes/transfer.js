@@ -1,5 +1,6 @@
 const { Router } = require('express');
-const { body } = require('express-validator')
+const { body } = require('express-validator');
+const { validator } = require('../middlewares/validator')
 
 const { getTransfers, createTransfer } = require('../controllers/transfers')
 
@@ -17,6 +18,7 @@ router.post( '/',
         body('beneficiaryName').not().isEmpty(),
         body('beneficiaryDni').not().isEmpty(),
         body('remitterId').not().isEmpty(),
+        validator
     ], 
     createTransfer
 );

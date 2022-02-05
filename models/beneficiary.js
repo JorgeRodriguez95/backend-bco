@@ -1,7 +1,10 @@
 const { Schema, model } = require('mongoose');
 
-const TransferSchema = Schema({
+const BeneficiarySchema = Schema({
 
+    beneficiaryDni: {
+        type: String
+    },
     beneficiaryBankAccount: {
         type: String,
         require: true
@@ -18,23 +21,10 @@ const TransferSchema = Schema({
         type: String,
         require: true
     },
-    beneficiaryDni: {
-        type: String,
-        require: true
-    },
-    amount: {
-        type: String,
-        require: true
-    },
-    reason: {
-        type: String,
-        require: true
-    },
-    remitterId: {
+    customerId: {
         type: String,
         require: true
     }
 });
 
-module.exports = model( 'Transfer', TransferSchema );
-
+module.exports = model( 'Beneficiary', BeneficiarySchema );
